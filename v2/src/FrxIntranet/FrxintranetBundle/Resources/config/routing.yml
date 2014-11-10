@@ -1,0 +1,16 @@
+frxintranet_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: FrxintranetBundle:Default:index }
+    
+FrxintranetBundle_client:
+        resource: "@FrxintranetBundle/Resources/config/routing/client.yml"
+        prefix:   /client
+
+
+FrxintranetBundle_depot:
+        resource: "@FrxintranetBundle/Resources/config/routing/depot.yml"
+        prefix:   /depot
+        
+frxintrant_test:
+    path: /test/{testname}
+    defaults: { _controller: FrxintranetBundle:Default:test }

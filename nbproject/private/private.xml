@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Repository/DepotRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/app/Resources/views/layout.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/app/config/routing.yml</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/pointage.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Entity/Primeponct.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/config/routing.yml</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Controller/DefaultController.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/ComptabiliteBundle/Controller/ExerciceController.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/views/Default/recapitulatif.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/views/Default/index.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Controller/DefaultController.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/chiffreadmin.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/header.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/views/Default/test.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Repository/PrimeponctRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Repository/PointeuseRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/views/Default/test.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Entity/Paye.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/config/routing.yml</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/ComptabiliteBundle/Resources/views/Default/editFrais.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/class.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Entity/Pourcentage.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/tableau.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/app/Resources/views/col-left.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Repository/RetraitRepository.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/admin.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Entity/ParamPaye.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/FrxintranetBundle/Entity/Client.php</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/views/Default/fichePrime.html.twig</file>
+            <file>file:/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/views/Default/liste.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

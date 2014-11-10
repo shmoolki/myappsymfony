@@ -1,0 +1,7 @@
+parameters:
+#    paye.example.class: FrxIntranet\PayeBundle\Example
+
+services:
+#    paye.example:
+#        class: %paye.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

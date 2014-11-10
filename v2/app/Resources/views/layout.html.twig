@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}FrxIntranet V2.0{% endblock %}</title>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{ asset('css/font-awesome.css') }}" />
+      <!--   <link rel="stylesheet" href="{{ asset('css/bootstrap3.0.3.css') }}" /> -->
+        
+        {% block stylesheets %}{% endblock %}
+       
+    </head>
+    <body>
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="brand" href="#">FrxIntranet V2.0</a>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+       <hr />
+
+        <footer id="footer" class="vspace20">
+            <div class="container">
+                
+                <div class="row">
+                    <div class="span4">
+                        <p>&copy; Copyright 2014 - FrxIntranet</p>
+                    </div>
+                </div>
+            </div>
+        </footer>	
+        <script src="{{ asset('js/jquery-1.10.0.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-2.1.1.min.js') }}"></script>
+        <script src="{{ asset('js/bootstrap.js') }}"></script>
+        <script src="{{ asset('js/jquery.countdown.min.js') }}"></script>
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

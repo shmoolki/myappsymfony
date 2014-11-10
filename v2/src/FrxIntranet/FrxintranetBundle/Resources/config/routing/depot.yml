@@ -1,0 +1,30 @@
+depot:
+    path:     /
+    defaults: { _controller: "FrxintranetBundle:Depot:index" }
+
+depot_show:
+    path:     /{id}/show
+    defaults: { _controller: "FrxintranetBundle:Depot:show" }
+
+depot_new:
+    path:     /new
+    defaults: { _controller: "FrxintranetBundle:Depot:new" }
+
+depot_create:
+    path:     /create
+    defaults: { _controller: "FrxintranetBundle:Depot:create" }
+    requirements: { _method: post }
+
+depot_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FrxintranetBundle:Depot:edit" }
+
+depot_update:
+    path:     /{id}/update
+    defaults: { _controller: "FrxintranetBundle:Depot:update" }
+    requirements: { _method: post|put }
+
+depot_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FrxintranetBundle:Depot:delete" }
+    requirements: { _method: post|delete }

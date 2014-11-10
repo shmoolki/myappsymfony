@@ -1,0 +1,13 @@
+paye_homepage:
+    path:     /{name}
+    defaults: { _controller: PayeBundle:Default:index }
+    
+    
+paye_visualisation:
+    path:     /visualisation/{name}
+    defaults: { _controller: PayeBundle:Default:index }
+    
+    
+paye_test:
+    path:     /test/{util}/{datedebut}/{datefin}
+    defaults: { _controller: PayeBundle:Default:recupInformation }

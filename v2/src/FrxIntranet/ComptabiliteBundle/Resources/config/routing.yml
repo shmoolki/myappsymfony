@@ -1,0 +1,32 @@
+comptabilite_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: ComptabiliteBundle:Default:index }
+    
+    
+comptabilite_exercice:
+    path:     /exercice/{name}
+    defaults: { _controller: ComptabiliteBundle:Exercice:generer }
+    
+comptabilite_frais:
+    path:     /frais
+    defaults: { _controller: ComptabiliteBundle:Exercice:listeFrais }
+    
+frais_edit:
+    path:     /frais/edit
+    defaults: { _controller: ComptabiliteBundle:Exercice:editFrais }
+    
+frais_suppr:
+    path:     /frais/{id}/delete
+    defaults: { _controller: ComptabiliteBundle:Exercice:supprFrais }
+    
+frais_modif:
+    path:     /frais/{id}/modif
+    defaults: { _controller: ComptabiliteBundle:Exercice:modifFrais }
+    
+frais_new:
+    path:     /frais/new
+    defaults: { _controller: ComptabiliteBundle:Exercice:newFrais }
+    
+frais_valid_modif:
+    path:     /frais/{id}/validation
+    defaults: { _controller: ComptabiliteBundle:Exercice:validModifFrais }

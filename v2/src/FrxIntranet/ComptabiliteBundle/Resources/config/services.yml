@@ -1,0 +1,7 @@
+parameters:
+#    comptabilite.example.class: FrxIntranet\ComptabiliteBundle\Example
+
+services:
+#    comptabilite.example:
+#        class: %comptabilite.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

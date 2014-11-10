@@ -1,0 +1,65 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="span3">
+                {% include '::col-left.html.twig' %}
+            </div>
+
+            <div class="span9">
+
+                <h2>Gestion des Frais</h2>
+                <div class="span4">
+                    <form action = "{% if new is defined %} 
+                          {{ path('frais_edit') }} 
+                          {% else %}
+                              {{ path('frais_valid_modif', {id:frais.id})}}
+                              {% endif %}" method="POST" >
+                                  <label>Montant</label>
+                                  <input type="text" name="montant" id="montant" value={{  frais.fraisMontant ? frais.fraisMontant|number_format : ''}}>
+                                  <label>Devise</label>
+                                  
+                                  <label>Date</label>
+                                  <input type="text" class="form-control  datepicker" required="" name="date" id="date" value={{ frais.fraisDate|date('Y-m-d')}}>
+
+                                  <label>Titre</label>
+                                  <input type="text" name="titre" id="titre" value={{ frais.fraisTitre}}>
+
+                                  <label>Generer en tant que Frais Fixe</label>
+                                  <input type="checkbox" name="fixe" id="fixe" {{ frais.fraisFixe ? 'checked' : ''  }}>
+
+                                  <label>description</label>
+                                  <textarea name="descriptif" id="descriptif">{{ frais.fraisDescriptif  }}</textarea>
+
+
+
+                                  <br />
+                                  {% if new is defined %} 
+                                      <button name="ajouter" value="ajouter" class="btn btn-primary">Ajouter</button>     
+                                  {% else %}
+                                      <button name="enr" value="enr" class="btn btn-success">Enregistrer</button>
+                                      <a href="{{ path('frais_suppr',{id:frais.id}) }}" class="btn btn-danger">Supprimer</a>
+                                      {% endif %}
+
+
+
+                              </form>
+                          </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            {% endblock %}
+                {% block javascripts %}
+                    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+                    <script src="{{ asset('js/bootstrap-datepicker-fr.js') }}"></script> 
+                    <script>
+                        $('.datepicker').datepicker({autoclose: true, todayHighlight: true, format: "yyyy-mm-dd", language: "fr"});
+
+                    </script>
+                {% endblock %}

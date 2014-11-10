@@ -1,0 +1,178 @@
+<?php
+
+/* ComptabiliteBundle:Default:frais.html.twig */
+class __TwigTemplate_4eefcbea591a53f4829243d58a1c0278741db5bbec109287a412316c458b214b extends Twig_Template
+{
+    public function __construct(Twig_Environment $env)
+    {
+        parent::__construct($env);
+
+        $this->parent = $this->env->loadTemplate("::layout.html.twig");
+
+        $this->blocks = array(
+            'body' => array($this, 'block_body'),
+            'javascripts' => array($this, 'block_javascripts'),
+        );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "::layout.html.twig";
+    }
+
+    protected function doDisplay(array $context, array $blocks = array())
+    {
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_body($context, array $blocks = array())
+    {
+        // line 3
+        echo "
+    <div class=\"container\">
+
+        <div class=\"row\">
+            <h2 class=\"offset3\">Liste des Frais</h2>
+            <div class=\"span9 offset3\">
+                ";
+        // line 24
+        echo "
+
+                <a href=\"";
+        // line 26
+        echo $this->env->getExtension('routing')->getPath("frais_new");
+        echo "\" class=\"span2 offset4 btn btn-primary\">Ajouter des frais</a>
+            </div>
+        </div> 
+            <br />
+        <div class=\"row\">
+            <div class=\"offset2\">
+                <form class=\"form-horizontal\">
+
+                    <div class=\"control-group\">
+                        <div class=\"controls form-inline\">
+                            <label for=\"datedeb\">Date debut</label>
+                            <input type=\"text\" class=\"input-medium datepicker\"  id=\"datedeb\">
+                            <label for=\"datefin\">Date Fin</label>
+                            <input type=\"text\" class=\"input-medium datepicker\"  id=\"datefin\">
+                        </div>
+                    </div>
+                </form>
+                
+            </div>      
+        </div>   
+
+
+        <div class=\"row\">
+            <div class=\"span3\">
+                ";
+        // line 50
+        $this->env->loadTemplate("::col-left.html.twig")->display($context);
+        // line 51
+        echo "            </div>
+            <div class=\"span9\">
+
+                <br/>    
+                <table class=\"table table-striped table-hover\">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Titre</th>
+                            <th>Montant</th>
+                            <th>Fixe (O/N)</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        ";
+        // line 68
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["frais"]) ? $context["frais"] : null));
+        foreach ($context['_seq'] as $context["_key"] => $context["ligne"]) {
+            // line 69
+            echo "
+
+                            <tr>
+                                <td><a href=\"#\">";
+            // line 72
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "fraisDate"), "d/m/Y"), "html", null, true);
+            echo "</a></td>
+                                <td>";
+            // line 73
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "fraisTitre"), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 74
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "fraisMontant"), "html", null, true);
+            echo " ";
+            echo twig_escape_filter($this->env, $this->getAttribute($this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "fraisDevise"), "deviseHtml"), "html", null, true);
+            echo "</td>
+                                <td>";
+            // line 75
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "fraisFixe"), "html", null, true);
+            echo "</td>
+                                <td>
+                                    <a href=\"";
+            // line 77
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("frais_modif", array("id" => $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "id"))), "html", null, true);
+            echo "\"><i class=\"icon-edit\"></i></a>
+                                    <a href=\"";
+            // line 78
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("frais_suppr", array("id" => $this->getAttribute((isset($context["ligne"]) ? $context["ligne"] : null), "id"))), "html", null, true);
+            echo "\"><i class=\"icon-remove\"></i></a>
+                                </td>
+                            </tr>
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['ligne'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 82
+        echo "                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+
+
+";
+    }
+
+    // line 92
+    public function block_javascripts($context, array $blocks = array())
+    {
+        // line 93
+        echo "    <script src=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap-datepicker.js"), "html", null, true);
+        echo "\"></script>
+    <script src=\"";
+        // line 94
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("js/bootstrap-datepicker-fr.js"), "html", null, true);
+        echo "\"></script> 
+    <script>
+        \$('.datepicker').datepicker({autoclose: true, todayHighlight: true, format: \"yyyy-mm-dd\", language: \"fr\"});
+
+    </script>
+";
+    }
+
+    public function getTemplateName()
+    {
+        return "ComptabiliteBundle:Default:frais.html.twig";
+    }
+
+    public function isTraitable()
+    {
+        return false;
+    }
+
+    public function getDebugInfo()
+    {
+        return array (  155 => 94,  150 => 93,  96 => 69,  139 => 60,  134 => 82,  34 => 7,  100 => 27,  20 => 1,  110 => 43,  77 => 27,  120 => 77,  113 => 54,  81 => 28,  74 => 30,  118 => 12,  97 => 43,  37 => 7,  124 => 78,  84 => 30,  76 => 28,  58 => 18,  53 => 16,  23 => 4,  480 => 162,  474 => 161,  469 => 158,  461 => 155,  457 => 153,  453 => 151,  444 => 149,  440 => 148,  437 => 147,  435 => 146,  430 => 144,  427 => 143,  423 => 142,  413 => 134,  409 => 132,  407 => 131,  402 => 130,  398 => 129,  393 => 126,  387 => 122,  384 => 121,  381 => 120,  379 => 119,  374 => 116,  368 => 112,  365 => 111,  362 => 110,  360 => 109,  355 => 106,  341 => 105,  337 => 103,  322 => 101,  314 => 99,  312 => 98,  309 => 97,  305 => 95,  298 => 91,  294 => 90,  285 => 89,  283 => 88,  278 => 86,  268 => 85,  264 => 84,  258 => 81,  252 => 80,  247 => 78,  241 => 77,  229 => 73,  220 => 70,  214 => 69,  177 => 65,  169 => 60,  140 => 55,  132 => 51,  128 => 45,  111 => 37,  107 => 42,  61 => 13,  273 => 96,  269 => 94,  254 => 92,  246 => 90,  243 => 88,  240 => 86,  238 => 85,  235 => 74,  230 => 82,  227 => 81,  224 => 71,  221 => 77,  219 => 76,  217 => 75,  208 => 68,  204 => 72,  179 => 69,  159 => 61,  143 => 56,  135 => 53,  131 => 58,  119 => 42,  108 => 36,  102 => 32,  71 => 50,  67 => 20,  63 => 24,  59 => 6,  47 => 12,  38 => 8,  94 => 28,  89 => 41,  85 => 29,  79 => 18,  75 => 25,  68 => 21,  56 => 13,  50 => 10,  29 => 2,  87 => 31,  72 => 22,  55 => 14,  21 => 2,  26 => 12,  98 => 36,  93 => 34,  88 => 38,  78 => 21,  46 => 11,  27 => 5,  40 => 24,  44 => 26,  35 => 8,  31 => 6,  43 => 12,  41 => 9,  28 => 5,  201 => 92,  196 => 90,  183 => 82,  171 => 61,  166 => 71,  163 => 62,  158 => 67,  156 => 66,  151 => 63,  142 => 59,  138 => 54,  136 => 56,  123 => 28,  121 => 46,  117 => 47,  115 => 75,  105 => 73,  101 => 72,  91 => 27,  69 => 25,  66 => 15,  62 => 19,  49 => 15,  24 => 7,  32 => 3,  25 => 3,  22 => 3,  19 => 1,  209 => 82,  203 => 78,  199 => 67,  193 => 73,  189 => 71,  187 => 84,  182 => 66,  176 => 64,  173 => 65,  168 => 72,  164 => 59,  162 => 59,  154 => 58,  149 => 51,  147 => 92,  144 => 49,  141 => 48,  133 => 55,  130 => 41,  125 => 44,  122 => 43,  116 => 41,  112 => 5,  109 => 74,  106 => 50,  103 => 28,  99 => 46,  95 => 42,  92 => 68,  86 => 28,  82 => 22,  80 => 29,  73 => 51,  64 => 19,  60 => 16,  57 => 23,  54 => 16,  51 => 13,  48 => 12,  45 => 9,  42 => 10,  39 => 8,  36 => 7,  33 => 7,  30 => 2,);
+    }
+}

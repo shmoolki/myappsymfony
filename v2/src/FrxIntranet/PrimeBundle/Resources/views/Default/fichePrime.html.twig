@@ -1,0 +1,153 @@
+{% extends "::layout.html.twig" %}
+{% block body %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="span3">
+                {% include '::col-left.html.twig' %}
+            </div>
+
+            <div class="span9">
+
+                <h2>Gestion des Primes ponctuelles</h2>
+                <hr />
+                {% if message is defined %}
+                    <div class="alert alert-success"><strong>{{ message }}</strong></div>
+                        {% endif %}
+                <div class="span4">
+                    <form action = "{% if new is defined %} 
+                          {{ path('prime_insert') }} 
+                          {% else %}
+                              {{ path('prime_valid_modif', {id:prime.id})}}
+                              {% endif %}" method="POST" >
+                                  {% if prime.primeponctUtil is not null %}
+                                      <div class="alert alert-info">Prime affectée à <strong>{{ prime.primeponctUtil.utilLogin|upper }}</strong></div>
+                                  {% endif %}                                  
+                                  <label>Montant</label>
+                                  <input type="text" name="montant" required id="montant" value={{  prime.primeponctMontant ? prime.primeponctMontant : ''}}>
+                                  <label>Devise</label>
+                                                                 
+                                      <select name="devise">
+                                          {% for devise in devises %}
+                                              <option value="{{ devise.id }}" {% if (new is not defined) and (prime.primeponctDevise.id==devise.id) %}selected{% endif %}> {{ devise.deviseTitre }}</option>
+                                          {% endfor %}
+                                      </select>                                  
+                                 
+                                  <hr>
+                                  <label>Date debut</label>
+                                  <input type="text" class="form-control  datepicker" required="" name="datedebut" id="datedebut" value={{ prime.primeponctDatedebut|date('Y-m-d')}}>
+                                  <label>Heure</label>
+                                  <div id="datetimepicker2" class="input-append">
+                                      <input data-format="hh:mm:ss" type="text" required name="heuredebut" value={{ prime.primeponctDatedebut|date('H:i')}}:00></input>
+                                      <span class="add-on">
+                                          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                          </i>
+                                      </span>
+                                  </div>
+                                  <hr>
+                                  <label>Date fin</label>
+                                  <input type="text" class="form-control  datepicker" required="" name="datefin" id="datefin" value={{ prime.primeponctDatefin|date('Y-m-d')}}>
+                                  <label>Heure</label>
+                                  <div id="datetimepicker3" class="input-append">
+                                      <input data-format="hh:mm:ss" type="text" required name="heurefin" value={{ prime.primeponctDatefin|date('H:i')}}:00></input>
+                                      <span class="add-on">
+                                          <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                                          </i>
+                                      </span>
+                                  </div>
+
+                                  <hr>
+                                  <label>Titre</label>
+                                  <input type="text" name="titre" id="titre" required value="{{ prime.primeponctTitre}}">
+
+                                  <label>Actif</label>
+                                           
+                                  <input type="checkbox" name="actif" id="actif" {{ prime.primeponctActive ? 'checked' : ''  }}>                                  
+                                 
+
+                                  <label>Description</label>
+                                  <textarea name="descriptif" id="descriptif">{{ prime.primeponctDescriptif  }}</textarea>
+
+
+
+                                  <br />
+                                  {% if new is defined %} 
+                                      <button name="ajouter" value="ajouter" class="btn btn-primary">Ajouter</button>     
+                                  {% else %}
+                                      <button name="enr" value="enr" class="btn btn-success">Enregistrer</button>
+                                      <a href="{{ path('prime_suppr',{id:prime.id}) }}" class="btn btn-danger">Supprimer</a>
+                                  {% endif %}
+
+
+
+                              </form>
+                          </div>
+                          {% if new is not defined %} 
+                              <button class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                  {{  prime.primeponctUtil ? 'Modifier affectation'  : 'Affecter la prime à un TA'}}
+
+                              </button>
+
+                              <!-- Modal -->
+                              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                  <div class="modal-dialog">
+                                      <div class="modal-content">
+                                          <div class="modal-header">
+                                              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                              <h4 class="modal-title" id="myModalLabel">Choisissez un TA</h4>
+                                          </div>
+                                          <div class="modal-body">
+                                              <table class="table table-striped table-hover">
+                                                  <thead>
+                                                      <tr>
+                                                          <th>Login</th>
+                                                          <th>Nom</th>
+                                                          <th>Prenom</th>
+                                                      </tr>
+                                                  </thead>
+                                                  <tbody>
+                                                      {% for util in utilisateurs %}
+                                                          <tr>
+                                                              <td><a href="{{ path('prime_affectation', {'myprime':prime.id , 'myutil':util.id }) }}" >{{  util.utilLogin }}</a></td>
+                                                              <td>{{  util.utilNom }}</td>
+                                                              <td>{{  util.utilPrenom }}</td>                                                         
+                                                          </tr>
+                                                      {% endfor %}
+                                                  </tbody>
+                                              </table>
+                                          </div>
+                                          <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          {% endif %}
+                    </div>
+                </div>
+
+            </div>
+
+
+
+
+
+            {% endblock %}
+                {% block javascripts %}
+                    <script src="{{ asset('js/bootstrap-datepicker.js') }}"></script>
+                    <script src="{{ asset('js/bootstrap-datepicker-fr.js') }}"></script>
+                    <script src="{{ asset('js/bootstrap-datetimepicker.min.js') }}"></script> 
+                    <script>
+                        $('.datepicker').datepicker({autoclose: true, todayHighlight: true, format: "yyyy-mm-dd", language: "fr"});
+                        $(function() {
+                            $('#datetimepicker3').datetimepicker({
+                                pickDate: false
+                            });
+                            $('#datetimepicker2').datetimepicker({
+                                pickDate: false
+                            });
+                        });
+                    </script>
+                {% endblock %}

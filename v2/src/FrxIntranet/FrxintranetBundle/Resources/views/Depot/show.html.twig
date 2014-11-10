@@ -1,0 +1,52 @@
+{% extends '::layout.html.twig' %}
+
+{% block body -%}
+    <h1>Depot</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Depotdate</th>
+                <td>{{ entity.depotDate|date('Y-m-d H:i:s') }}</td>
+            </tr>
+            <tr>
+                <th>Depotnummonth</th>
+                <td>{{ entity.depotNumMonth }}</td>
+            </tr>
+            <tr>
+                <th>Depotmontant</th>
+                <td>{{ entity.depotMontant }}</td>
+            </tr>
+            <tr>
+                <th>Depotprime</th>
+                <td>{{ entity.depotPrime }}</td>
+            </tr>
+            <tr>
+                <th>Depotfirstdeposit</th>
+                <td>{{ entity.depotFirstdeposit }}</td>
+            </tr>
+            <tr>
+                <th>Depotpoucent</th>
+                <td>{{ entity.depotPoucent }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('depot') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('depot_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

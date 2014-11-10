@@ -1,0 +1,46 @@
+<div class="span9">
+
+                <br/>    
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Date Debut</th>
+                            <th>Date Fin</th>
+                            <th>Titre</th>
+                            <th>Montant</th>
+                            <th>Active (O/N)</th>
+                            <th>Affecté à</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+
+                        {% for ligne in primes %}
+
+
+                            <tr>
+                                <td>{{  ligne.primeponctDatedebut|date('d/m/Y H:m') }}</td>
+                                <td>{{  ligne.primeponctDatefin|date('d/m/Y H:m') }}</td>
+                                <td>{{  ligne.primeponctTitre }}</td>
+                                <td>{{  ligne.primeponctMontant }} {{  ligne.primeponctDevise.deviseHtml|raw }}</td>
+                                <td>{{  (ligne.primeponctActive in [1]) ? '<i class="icon-ok"></i>' : 'Non Actif' }}</td>
+                                <td><b>{{  ligne.primeponctUtil ? ligne.primeponctUtil.utilLogin|upper : 'Pas Affecté'  }}</b></td>
+                                <td>
+                                    <a href="{{ path('prime_edit', {id:ligne.id}) }}"><i class="icon-edit"></i></a>
+                                    <a href="{{ path('prime_suppr',{id:ligne.id}) }}"><i class="icon-remove"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                    
+                    {% for test, test1 in somme %}
+                        
+                           {{ test}} {{ test1 }} 
+                   
+                        
+                   
+                    {% endfor %}
+
+            </div>

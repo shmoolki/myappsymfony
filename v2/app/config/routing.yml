@@ -1,0 +1,20 @@
+paye:
+    resource: "@PayeBundle/Resources/config/routing.yml"
+    prefix:   /paye
+
+prime:
+    resource: "@PrimeBundle/Resources/config/routing.yml"
+    prefix:   /prime
+
+comptabilite:
+    resource: "@ComptabiliteBundle/Resources/config/routing.yml"
+    prefix:   /comptabilite
+
+utilisateurs:
+    resource: "@UtilisateursBundle/Resources/config/routing.yml"
+    prefix:   /
+
+frxintranet:
+    resource: "@FrxintranetBundle/Resources/config/routing.yml"
+    prefix:   /
+

@@ -1,0 +1,47 @@
+prime_homepage:
+    path:     /hello/{id}
+    defaults: { _controller: PrimeBundle:Default:index }
+    
+prime_new:
+    path:     /new
+    defaults: { _controller: PrimeBundle:Default:creation }
+
+prime_affectation:
+    path:     /affectation/{myprime}/{myutil}
+    defaults: { _controller: PrimeBundle:Default:affectation }
+
+prime_visualisation:
+    path:     /list
+    defaults: { _controller: PrimeBundle:Default:visualisation }
+    
+prime_suppr:
+    path:     /{id}/delete
+    defaults: { _controller: PrimeBundle:Default:suppr }
+    
+prime_edit:
+    path:     /{id}/edit
+    defaults: { _controller: PrimeBundle:Default:edit }
+    
+prime_recherche:
+    path:     /recherche
+    defaults: { _controller: PrimeBundle:Default:visualisation }
+    requirements:
+        _method:  POST
+        
+prime_insert:
+    path:     /insert
+    defaults: { _controller: PrimeBundle:Default:insert }
+
+prime_valid_modif:
+    path:     /{id}/validation
+    defaults: { _controller: PrimeBundle:Default:validation }
+    
+prime_encours:
+    path:     /encours
+    defaults: { _controller: PrimeBundle:Default:encours }
+    
+
+prime_test:
+    path:     /test/{util}/{datedebut}/{datefin}
+    defaults: { _controller: PrimeBundle:Default:recupPrime }
+        

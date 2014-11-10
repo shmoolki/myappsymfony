@@ -1,0 +1,7 @@
+parameters:
+#    frxintranet.example.class: FrxIntranet\FrxintranetBundle\Example
+
+services:
+#    frxintranet.example:
+#        class: %frxintranet.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

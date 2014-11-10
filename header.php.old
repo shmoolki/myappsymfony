@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <title>FRXbanque Intranet</title>
+
+    <!-- Bootstrap core CSS -->
+	<link href="style/bootstrap.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+	<link href="style/style.css" rel="stylesheet">
+	    <link href="style/datepicker.css" rel="stylesheet">
+	
+  </head>
+
+  <body>
+
+  
+	<div class="container">
+	<img src="images/logo.png" alt="FRXbanque" class="img-rounded">
+      <div class="header">
+	
+	
+	 
+    <?php
+	
+/*	$userSerial = serialize($user);
+
+	$param = urlencode($userSerial);
+
+*/
+
+	
+		if (!isset($user)){}else{
+
+			
+	?>
+        <ul class="nav nav-pills pull-right">
+		<?php
+		if (($user->util_admin()==1) &&($maPage=="adminUser" || $maPage=="horaire"|| $maPage=="parametrage" || $maPage=="admin")){
+		?>
+          <li <?php 
+		 if (!isset($maPage)){}elseif ($maPage=="admin"){echo 'class="active"';}	
+		?>><a href="admin.php?util=<?php echo $user->util_id(); ?>">Admin </a></li>
+		<?php ?>
+          <li <?php 
+		if (!isset($maPage)){}else{ if ($maPage=="horaire"){echo 'class="active"';}}	
+		?>><a href="horaire.php?util=<?php echo $user->util_id(); ?>">Horaire </a></li>
+		 <li <?php
+		if (!isset($maPage)){}else{ if ($maPage=="parametrage"){echo 'class="active"';}}	
+		?>><a href="parametrage.php?util=<?php echo $user->util_id(); ?>">Parametrage</a></li>
+		  <li <?php 
+		if (!isset($maPage)){}else{ if ($maPage=="user"){echo 'class="active"';}}	
+		?>><a href="util.php?util=<?php echo $user->util_id(); ?>">User </a></li>
+		<li><a href="pointage.php?util=<?php echo $user->util_id(); ?>" class="btn btn-warning btn-sm" role="button">Menu Utilisateur</a></li>
+		<?php
+		
+		
+		
+		
+		}else{
+
+		if($user->util_admin()==1){?>
+          <li <?php 
+		if (!isset($maPage)){}else{ if ($maPage=="admin"){echo 'class="active"';}}	
+		?>><a href="admin.php?util=<?php echo $user->util_id(); ?>">Admin </a></li><?php }?>
+		
+		 <li <?php
+		if (!isset($maPage)){}else{ if ($maPage=="client"){echo 'class="active"';}}	
+		?>><a href="client.php?util=<?php echo $user->util_id(); ?>">Clients</a></li>
+		
+          <li <?php
+		if (!isset($maPage)){}else{ if ($maPage=="depot"){echo 'class="active"';}}	
+		?>><a href="depot.php?util=<?php echo $user->util_id(); ?>">Depots</a></li>
+          <li <?php
+		if (!isset($maPage)){}else{ if ($maPage=="pointage"){echo 'class="active"';}}	
+		?>><a href="pointage.php?util=<?php echo $user->util_id(); ?>">Pointage</a></li>
+		 <li <?php
+		if (!isset($maPage)){}else{ if ($maPage=="recap"){echo 'class="active"';}}	
+		?>><a href="recap.php?util=<?php echo $user->util_id(); ?>">Recapitulatif</a></li>
+		<li><a href="index.php" class="btn btn-warning btn-sm" role="button">Deconnexion</a></li>
+		<?php }?>
+        </ul>
+ <?php
+		
+ 
+ 
+ 
+		}	
+	?>
+        <h3 class="text-muted">INTRANET</h3>
+		
+      </div>
+	  
+	 
