@@ -16,14 +16,14 @@ class DepotType extends AbstractType
     {
         $builder
             ->add('depotDate')
-            ->add('depotNumMonth')
+        //    ->add('depotNumMonth')
             ->add('depotMontant')
-            ->add('depotPrime')
+//            ->add('depotPrime')
             ->add('depotFirstdeposit')
-            ->add('depotPoucent')
+  //          ->add('depotPoucent')
             ->add('depotClient')
-            ->add('depotPaye')
-            ->add('depotUtil')
+    //        ->add('depotPaye')
+     //       ->add('depotUtil')
         ;
     }
     

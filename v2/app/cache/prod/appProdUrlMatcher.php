@@ -27,61 +27,87 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/prime')) {
-            // prime_homepage
-            if (0 === strpos($pathinfo, '/prime/hello') && preg_match('#^/prime/hello/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_homepage')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::indexAction',));
-            }
-
-            // prime_new
-            if ($pathinfo === '/prime/new') {
-                return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::creationAction',  '_route' => 'prime_new',);
-            }
-
-            // prime_affectation
-            if (0 === strpos($pathinfo, '/prime/affectation') && preg_match('#^/prime/affectation/(?P<myprime>[^/]++)/(?P<myutil>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_affectation')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::affectationAction',));
-            }
-
-            // prime_visualisation
-            if ($pathinfo === '/prime/list') {
-                return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::visualisationAction',  '_route' => 'prime_visualisation',);
-            }
-
-            // prime_suppr
-            if (preg_match('#^/prime/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_suppr')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::supprAction',));
-            }
-
-            // prime_edit
-            if (preg_match('#^/prime/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_edit')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::editAction',));
-            }
-
-            // prime_recherche
-            if ($pathinfo === '/prime/recherche') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
-                    goto not_prime_recherche;
+        if (0 === strpos($pathinfo, '/p')) {
+            if (0 === strpos($pathinfo, '/paye')) {
+                // paye_homepage
+                if (preg_match('#^/paye/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'paye_homepage')), array (  '_controller' => 'FrxIntranet\\PayeBundle\\Controller\\DefaultController::indexAction',));
                 }
 
-                return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::visualisationAction',  '_route' => 'prime_recherche',);
-            }
-            not_prime_recherche:
+                // paye_visualisation
+                if (0 === strpos($pathinfo, '/paye/visualisation') && preg_match('#^/paye/visualisation/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'paye_visualisation')), array (  '_controller' => 'FrxIntranet\\PayeBundle\\Controller\\DefaultController::indexAction',));
+                }
 
-            // prime_insert
-            if ($pathinfo === '/prime/insert') {
-                return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::insertAction',  '_route' => 'prime_insert',);
-            }
+                // paye_test
+                if (0 === strpos($pathinfo, '/paye/test') && preg_match('#^/paye/test/(?P<util>[^/]++)/(?P<datedebut>[^/]++)/(?P<datefin>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'paye_test')), array (  '_controller' => 'FrxIntranet\\PayeBundle\\Controller\\DefaultController::recupInformationAction',));
+                }
 
-            // prime_valid_modif
-            if (preg_match('#^/prime/(?P<id>[^/]++)/validation$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_valid_modif')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::validationAction',));
             }
 
-            // prime_encours
-            if ($pathinfo === '/prime/encours') {
-                return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::encoursAction',  '_route' => 'prime_encours',);
+            if (0 === strpos($pathinfo, '/prime')) {
+                // prime_homepage
+                if (0 === strpos($pathinfo, '/prime/hello') && preg_match('#^/prime/hello/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_homepage')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::indexAction',));
+                }
+
+                // prime_new
+                if ($pathinfo === '/prime/new') {
+                    return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::creationAction',  '_route' => 'prime_new',);
+                }
+
+                // prime_affectation
+                if (0 === strpos($pathinfo, '/prime/affectation') && preg_match('#^/prime/affectation/(?P<myprime>[^/]++)/(?P<myutil>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_affectation')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::affectationAction',));
+                }
+
+                // prime_visualisation
+                if ($pathinfo === '/prime/list') {
+                    return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::visualisationAction',  '_route' => 'prime_visualisation',);
+                }
+
+                // prime_suppr
+                if (preg_match('#^/prime/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_suppr')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::supprAction',));
+                }
+
+                // prime_edit
+                if (preg_match('#^/prime/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_edit')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::editAction',));
+                }
+
+                // prime_recherche
+                if ($pathinfo === '/prime/recherche') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_prime_recherche;
+                    }
+
+                    return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::visualisationAction',  '_route' => 'prime_recherche',);
+                }
+                not_prime_recherche:
+
+                // prime_insert
+                if ($pathinfo === '/prime/insert') {
+                    return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::insertAction',  '_route' => 'prime_insert',);
+                }
+
+                // prime_valid_modif
+                if (preg_match('#^/prime/(?P<id>[^/]++)/validation$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_valid_modif')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::validationAction',));
+                }
+
+                // prime_encours
+                if ($pathinfo === '/prime/encours') {
+                    return array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::encoursAction',  '_route' => 'prime_encours',);
+                }
+
+                // prime_test
+                if (0 === strpos($pathinfo, '/prime/test') && preg_match('#^/prime/test/(?P<util>[^/]++)/(?P<datedebut>[^/]++)/(?P<datefin>[^/]++)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'prime_test')), array (  '_controller' => 'FrxIntranet\\PrimeBundle\\Controller\\DefaultController::recupPrimeAction',));
+                }
+
             }
 
         }

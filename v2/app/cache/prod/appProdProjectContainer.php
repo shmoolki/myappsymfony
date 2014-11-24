@@ -813,7 +813,7 @@ class appProdProjectContainer extends Container
         $f->addHandler($this->get('security.logout.handler.session'));
         $g = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($d, array('always_use_default_target_path' => false, 'default_target_path' => '/', 'login_path' => '/login', 'target_path_parameter' => '_target_path', 'use_referer' => false));
         $g->setProviderKey('main');
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $this->get('fos_user.user_provider.username')), 'main', $b, $c), 2 => $f, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $this->get('security.authentication.manager'), $this->get('security.authentication.session_strategy'), $d, 'main', $g, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $b, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '54456e98c5f78', $b), 5 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $d, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $d, '/login', false), NULL, NULL, $b));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => $this->get('security.channel_listener'), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($a, array(0 => $this->get('fos_user.user_provider.username')), 'main', $b, $c), 2 => $f, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($a, $this->get('security.authentication.manager'), $this->get('security.authentication.session_strategy'), $d, 'main', $g, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $d, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $b), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $b, $c, $this->get('form.csrf_provider')), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($a, '5471fdafe896b', $b), 5 => $this->get('security.access_listener')), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($a, $this->get('security.authentication.trust_resolver'), $d, 'main', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $d, '/login', false), NULL, NULL, $b));
     }
     protected function getSecurity_Rememberme_ResponseListenerService()
     {
@@ -1330,6 +1330,7 @@ class appProdProjectContainer extends Container
         $instance->addResource('xlf', '/Applications/MAMP/htdocs/bitane/test/v2/src/Utilisateurs/UtilisateursBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/ComptabiliteBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         $instance->addResource('xlf', '/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', '/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/translations/messages.fr.xlf', 'fr', 'messages');
         return $instance;
     }
     protected function getTwigService()
@@ -1373,6 +1374,7 @@ class appProdProjectContainer extends Container
         $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/src/Utilisateurs/UtilisateursBundle/Resources/views', 'Utilisateurs');
         $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/ComptabiliteBundle/Resources/views', 'Comptabilite');
         $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PrimeBundle/Resources/views', 'Prime');
+        $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/src/FrxIntranet/PayeBundle/Resources/views', 'Paye');
         $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/app/Resources/views');
         $instance->addPath('/Applications/MAMP/htdocs/bitane/test/v2/vendor/symfony/symfony/src/Symfony/Bridge/Twig/Resources/views/Form');
         return $instance;
@@ -1450,7 +1452,7 @@ class appProdProjectContainer extends Container
         $a = $this->get('fos_user.user_provider.username');
         $b = $this->get('security.user_checker');
         $c = $this->get('security.encoder_factory');
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('54456e98c5f78'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'demo_secured_area', $c, true)), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'main', $c, true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('5471fdafe896b'), 2 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($a, $b, 'demo_secured_area', $c, true)), true);
         $instance->setEventDispatcher($this->get('event_dispatcher'));
         return $instance;
     }
@@ -1542,6 +1544,7 @@ class appProdProjectContainer extends Container
                 'UtilisateursBundle' => 'Utilisateurs\\UtilisateursBundle\\UtilisateursBundle',
                 'ComptabiliteBundle' => 'FrxIntranet\\ComptabiliteBundle\\ComptabiliteBundle',
                 'PrimeBundle' => 'FrxIntranet\\PrimeBundle\\PrimeBundle',
+                'PayeBundle' => 'FrxIntranet\\PayeBundle\\PayeBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appProdProjectContainer',
